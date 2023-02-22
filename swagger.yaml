@@ -1,0 +1,83 @@
+swagger: "2.0"
+info:
+  title: Testing API
+  description: API description in Markdown.
+  version: 1.0.0
+host: localhost:3000
+schemes:
+  - http
+paths:
+  /min-max-sum:
+    post:
+      tags:
+      - SUM
+      parameters:
+        - in: body
+          name: body
+          description: Array of 5 integers
+          schema:
+            type: object
+            required:
+              - arr
+            properties:
+              arr:
+                type: array
+                example: [1,2,3,4,5]
+             
+      description: find the minimum and maximum values that can be calculated by summing exactly four of the five integers
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+      
+  /min-max-space:
+    post:
+      tags:
+      - SUM
+      parameters:
+        - in: body
+          name: body
+          description: A single line of five space-separated intergrs 
+          schema:
+            type: object
+            required:
+              - input
+            properties:
+              input:
+                type: string
+                example: 1 2 3 4 5
+      description: Print two space-separated long integers denoting the respective minimum and maximum values
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+  /sum-except-input:
+    post:
+      tags:
+      - SUM
+      parameters:
+        - in: body
+          name: body
+          description: We can calculate the following sums using four of the fiveintegers
+          schema:
+            type: object
+            required:
+              - input
+              - array_number
+            properties:
+              input:
+                type: numberic
+                example: 1
+              array_number:
+                type: array
+                example: [1,2,3,4,5]
+      description: 'If we sum everything except 1, our sum is: 2 + 3 + 4 + 5 = 14'
+      produces:
+        - application/json
+      responses:
+        200:
+          description: OK
+  
+  
